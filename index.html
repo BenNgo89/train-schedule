@@ -4,7 +4,7 @@
 <head>
     <title>Train Scheduler</title>
 
-    <meta name="viewport" content="width=device-width" initial-scale=1.0>
+    <meta name="viewport" content="width=device-width" initial-scale=1.0">
     <!-- Link to reset CSS to zero out browser defaults -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <!-- Link to custom CSS -->
@@ -27,7 +27,7 @@
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                     <i class="fa fa-subway" aria-hidden="true"></i>
                 </h1>
-                <h1 class="display-3"><strong>Train Scheduler</strong></h1>
+                <h1 class="display-3"><strong>Timely Express</strong></h1>
                 <p class="lead">Getting you there on time</p>
                 <h2 class="currentTime"></h2>
             </div>
@@ -66,7 +66,7 @@
                     <form novalidate>
                         <div class="form-row">
                             <div class="form-group col-sm-6">
-                                <label for="train-number">Train #</label>
+                                <label for="train-number">Train #"</label>
                                 <input type="number" class="form-control" id="train-number" min="1" max="999"
                                     placeholder="123" required />
                                 <div class="invalid-feedback">
@@ -121,12 +121,16 @@
 
                 </div>
 
+
             </div>
+
+
         </div>
+
         <!-- Link to momentjs CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
         <!-- Firebase Link -->
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
         <!-- Link to jQuery CDN -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -137,10 +141,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
         </script>
+
         <!-- Links to JS Files -->
         <script type="text/javascript" src="assets/javascript/model.js"></script>
         <script type="text/javascript" src="assets/javascript/view.js"></script>
         <script type="text/javascript" src="assets/javascript/controller.js"></script>
+
 </body>
+
+</html>
 
 </html>

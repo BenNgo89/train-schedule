@@ -1,14 +1,14 @@
 // This is where all the data and global variables will 
- // live for the project
+// live for the project
 
- // Initialize Firebase
+// Initialize Firebase
 var config = {
-apiKey: "AIzaSyApIvO1MNIvE_WNeyS7jFrDHuI4BQ56rFE",
-authDomain: "train-scheduler-f365b.firebaseapp.com",
-databaseURL: "https://train-scheduler-f365b.firebaseio.com",
-projectId: "train-scheduler-f365b",
-storageBucket: "",
-messagingSenderId: "471705960814"
+	apiKey: "AIzaSyBW0JPXul5QIx1iUkdbgb0zmtXmcW0iO_8",
+		authDomain: "train-schedule-ee5a1.firebaseapp.com",
+		databaseURL: "https://train-schedule-ee5a1.firebaseio.com",
+		projectId: "train-schedule-ee5a1",
+		storageBucket: "train-schedule-ee5a1.appspot.com",
+		messagingSenderId: "106160928705"
 };
 firebase.initializeApp(config);
 
@@ -37,12 +37,12 @@ var model = {
 		database.ref().push({
 
 			trainDeparture: trainDeparture,
-		    trainDestination: trainDestination,
-		    trainFrequency: trainFrequency,
-		    trainLine: trainLine,
-		    trainNumber: trainNumber,
-		    trainPlatform: trainPlatform,
-		    dateAdded: firebase.database.ServerValue.TIMESTAMP
+			trainDestination: trainDestination,
+			trainFrequency: trainFrequency,
+			trainLine: trainLine,
+			trainNumber: trainNumber,
+			trainPlatform: trainPlatform,
+			dateAdded: firebase.database.ServerValue.TIMESTAMP
 
 		});
 
@@ -54,7 +54,7 @@ var model = {
 
 		var filter = database.ref().orderByChild("dateAdded").limitToLast(1)
 
-		filter.once("child_added", function(childSnapshot) {
+		filter.once("child_added", function (childSnapshot) {
 
 			trainNumber = childSnapshot.val().trainNumber
 			trainLine = childSnapshot.val().trainLine
@@ -72,29 +72,29 @@ var model = {
 
 	initialDatabasePull: () => {
 
-		database.ref().on("value", function(snapshot) {
-				var trains = snapshot.val();
+		database.ref().on("value", function (snapshot) {
+			var trains = snapshot.val();
 
-				//console.log(trains);
+			//console.log(trains);
 
-				$('#train-schedule-body').empty();
+			$('#train-schedule-body').empty();
 
-				for (var index in trains){
-					trainNumber = trains[index].trainNumber
-					trainLine = trains[index].trainLine
-					trainDestination = trains[index].trainDestination
-					trainDeparture = trains[index].trainDeparture
-					trainFrequency = trains[index].trainFrequency
-					trainPlatform = trains[index].trainPlatform
+			for (var index in trains) {
+				trainNumber = trains[index].trainNumber
+				trainLine = trains[index].trainLine
+				trainDestination = trains[index].trainDestination
+				trainDeparture = trains[index].trainDeparture
+				trainFrequency = trains[index].trainFrequency
+				trainPlatform = trains[index].trainPlatform
 
-					//console.log(trainNumber, trainLine, trainDestination, trainDeparture, trainFrequency, trainPlatform)
-					controller.nextArrival();
-					controller.minutesAway();
-					view.updateTrainScheduleTable();
-				};
+				//console.log(trainNumber, trainLine, trainDestination, trainDeparture, trainFrequency, trainPlatform)
+				controller.nextArrival();
+				controller.minutesAway();
+				view.updateTrainScheduleTable();
+			};
 
-		}, function(errorObject) {
-      		console.log("Errors handled: " + errorObject.code);
+		}, function (errorObject) {
+			console.log("Errors handled: " + errorObject.code);
 
 		});
 	}
